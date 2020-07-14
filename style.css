@@ -7,11 +7,35 @@ html {
 body {
   min-height: 100%;
   min-width: 100%;
-  background: linear-gradient(pink, violet);
 }
 
 button {
   font-size: 7px;
+}
+input[type="submit"] {
+  padding: .5em;
+  color: white;
+  border: none;
+  background: gold;
+}
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+i {
+  margin-left: .5em;
+  color: red;
+}
+i:hover {
+  cursor: pointer;
+}
+
+h1 {
+  font-family: 'Helvetica';
+}
+h2 {
+  text-align: center;
+  font-family: 'cursive';
 }
 
 #main-content {
@@ -21,7 +45,6 @@ button {
   align-items: center;
   flex-direction: column;
   border: 1px solid #333;
-  background: rgba(255, 255, 255, 0.3);
   padding: 15px 20px 18px 18px;
   border-radius: 5px;
   box-shadow: 2px 5px 5px #333;
