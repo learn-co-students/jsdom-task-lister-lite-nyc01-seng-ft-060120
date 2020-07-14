@@ -4,6 +4,16 @@ html {
   font-family: "Titillium Web", sans-serif;
 }
 
+.priority-low {
+  color: green;
+}
+.priority-medium {
+  color: gold;
+}
+.priority-high {
+  color: red;
+}
+
 body {
   min-height: 100%;
   min-width: 100%;
