@@ -2,37 +2,25 @@ document.addEventListener("DOMContentLoaded", function(){
 
   console.log("The Dom has Loaded")
   
+
+   //form and relevant input fields
+   const form = document.getElementById("create-task-form");
+ 
+   //attach event listeners
+   form.addEventListener("submit", addTask);
 });
-
-
-
-const submit = document.getElementById('submit');
-
-submit.addEventListener("click", function(e){
-  e.preventDefault();
-  console.log(e.target);
-});
-
-
-const newTaskDescription = document.GetElementById("new-task-description")
 
 function addTask(task){
-  const taskLi = document.createElement("li")
-  taskLi.className = "tasks"
-  taskLi.innerHTML = newTaskDescription.value
-  newTaskDescription.append(taskLi)
+  task.preventDefault();  // preventing default action from "submit" action on line 10 that reloads the page
+  const newTaskDescription = document.getElementById("new-task-description"); // the user input field
+
+  const taskLi = document.createElement("li") // creating "li" element
+  taskLi.innerText = newTaskDescription.value
+
+  appendTask(taskLi)
+  task.target.reset
 }
 
-
-
-
-// function addTask(taskObject){
-//   const taskLi = document.createElement("li")
-//   taskLi.className = 'task'
-//   taskLi.innerHTML = "Hi"
-//   tasks.append(taskLi)
-// }
-
-
-
-
+function appendTask(taskObj) {
+  document.getElementById("tasks").appendChild(taskObj)
+}
