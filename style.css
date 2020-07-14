@@ -14,6 +14,18 @@ button {
   font-size: 7px;
 }
 
+.high-priority {
+  background-color: red;
+}
+
+.med-priority {
+  background-color: yellow;
+}
+
+.low-priority {
+  background-color: green;
+}
+
 #main-content {
   position: relative;
   display: flex;
