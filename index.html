@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Flatiron Task Lister</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -11,16 +12,26 @@
 
     <form id="create-task-form" action="#" method="post">
       <label for="new-task-description">Task description:</label>
-      <input type="text" id="new-task-description" name="new-task-description" placeholder="description">
-      <input type="submit" value="Create New Task">
+      <input type="text" id="new-task-description" name="new-task-description" placeholder="description" required = true>
+      <input type="submit" value="Create New Task" id = "submit-button">
+
+      <select name="priority" id="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+
+      </select>
+
     </form>
 
     <div id="list">
       <h2>My Todos</h2>
       <ul id="tasks">
+        <span class = "priority-low" id = "task-low"></span>
+        <span class = "priority-medium" id = "task-medium"></span>
+        <span class = "priority-high" id = "task-high"></span>
       </ul>
     </div>
-
     <script src="./src/index.js"></script>
   </div>
 
