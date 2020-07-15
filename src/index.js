@@ -1,54 +1,56 @@
-// VARIABLES
-const newTask = document.getElementById("new-task-description"); //gets the input task bar
-
-const ul = document.getElementById('list') //gets the ul element TODO LIST
-
-
-let inputs = document.querySelectorAll('input') // gets an array of inputs
-
-let submitButton = inputs[1] //lets us select button as the input we want
-
-
-// FUNCTIONS
-
-function addToDo(event){
-   event.preventDefault();
-    let li = document.createElement('li');
-    li.innerText = newTask.value;
-    ul.appendChild(li);
-    // TRASH BUTTON
-    const trashButton = document.createElement('button');
-    trashButton.classList.add('trash-btn');
-    trashButton.innerHTML = "<b>X</b>"
-    ul.appendChild(trashButton);
-}
-
-function deleteToDo(event){
-  console.log(event.target)
-  const item = event.target;
-  if (item.class === 'trash-btn'){
-    const todo = item.parentElement;
-    todo.remove();
-  }
-}
-
-// EVENT LISTENERS
-
-submitButton.addEventListener('click', addToDo);
-ul.addEventListener('click', deleteToDo);
-
-
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  // your code here
+  
+  const form = document.getElementById("create-task-form")
+  
+  form.addEventListener("submit",function(e){
+    // console.log(e.target[0])
+    e.preventDefault();
+    const task = e.target["new-task-description"].value
+    const taskLi = document.createElement("li")
+    taskLi.textContent = task
 
-});
+    const button = document.createElement("button")
+    button.textContent = "X"
+    taskLi.append(button)
 
-
-
-// Psuedo code
-
+    button.addEventListener("click",function(e){
+      const taskLi = e.target.parentElement
+      console.log(taskLi)
+      
+      taskLi.remove()
+    });
+    const tasks = document.getElementById("tasks")
+    tasks.append(taskLi)
+  });
+    
+    
+  });
+  
+  
+  
+  
+  // const textField = document.querySelector("input")
+  // const ul = document.querySelector("ul");
+  //   // console.log(e.target)
+    
+  //   const li = document.createElement("li");
+  //   li.textContent = task;
+  //   ul.appendChild(li);
+    
+  // //  console.log(ul)
+    
+  //   // textField.value = ""
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  // Psuedo code
 // 1. find input field to enter text to submit
 // 2. add that text to a sublist 
   //2a. Each task should be added at the end of the sublist (as bullets)
