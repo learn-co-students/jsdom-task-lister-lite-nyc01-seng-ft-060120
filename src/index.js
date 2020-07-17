@@ -1,26 +1,37 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", () => {
 
-  console.log("The Dom has Loaded")
-  
+    const form = document.querySelector("form")
+    form.addEventListener("submit", function(e){
+        e.preventDefault()
+        const task = e.target['new-task-description'].value
+        const taskLi = document.createElement("li")
+        taskLi.textContent = task
+        const button = document.createElement("button")
+        button.textContent = "X"
+        console.log(button)
 
-   //form and relevant input fields
-   const form = document.getElementById("create-task-form");
- 
-   //attach event listeners
-   form.addEventListener("submit", addTask);
+        button.addEventListener("click", function(e){
+            const taskLi = e.target.parentElement
+            taskLi.remove()
+        })
+
+        taskLi.append(button)
+        const tasks = document.getElementById('tasks')
+        tasks.appendChild(taskLi)
+        
+    })
+
+
+   
 });
 
-function addTask(task){
-  task.preventDefault();  // preventing default action from "submit" action on line 10 that reloads the page
-  const newTaskDescription = document.getElementById("new-task-description"); // the user input field
+/*
+- As a user, the task string that I provided should appear on the DOM after the submit button has been activated.
 
-  const taskLi = document.createElement("li") // creating "li" element
-  taskLi.innerText = newTaskDescription.value
-
-  appendTask(taskLi)
-  task.target.reset
-}
-
-function appendTask(taskObj) {
-  document.getElementById("tasks").appendChild(taskObj)
-}
+1. add a submit listener to the form (not button)
+2. get the text out of the form 
+3. create a new html element li for the text
+4. put text in li 
+5. append list item to the ul 
+6. add a delete button 
+*/
